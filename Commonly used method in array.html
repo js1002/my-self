@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //var ary=[1,2,5,4,8,55,44,41,69];
+    //增加  删除  更改
+    //1.push  向数组的末尾增加一项
+    //ary.push();//原有数组改变，返回值是增加后新数组的长度
+    //ary.lengtg=55与ary.push（55）等同
+    //2，pop 删除数组中最末尾的那一项
+    //ary.pop();//原有数组改变，返回值是删除的那一项的内容
+    //ary.length--与ary.pop()
+    //3，unshift 想数组的开头增加一项新的内容 返回值是增加后新数组的长度
+    //4，shift   删除数组的第一项   返回值是删除的那一项内容
+    //5，splice
+    //1)splice(n,m)  从索引n开始删除m个元素，把删除的圆度当做一个新的数组返回，原有的数组发生改变
+    //2）spilice（n）从索引n开始删除到数组的最末尾，splice（0）从第一项删除到最后一项，把删除的每一项都保存在了一个数组中，相当于克隆了一份，原有的数组改变
+    //3）splice（n，m，x）从索引n开始，删除m个，并用x替换删除的内容
+    //4）splice（n，0，x）从索引n开始，一个都没删除，将x添加到n的前面
+    //查询和克隆
+    //1slice
+    //slice（n，m）从索引开始，查询到索引m处，但是不包含m，价查询到的内容当做一个新的数组返回，原有的数组不变
+    //slice（n） 从索引n开始，查询到数组的最末尾，slice（0），相当于数组的克隆
+    //slice（负数索引），相当于索引加上数组的长度之后再进行查询
+    //2 concat 将里欧昂个数组拼接，原有的数组不变
+    //ary.concat（），相当于克隆原来的数组
+    //3,数组转化为字符串
+    //toString 将数组转化为字符串，原有的数组不变
+    //var ary1=[3,5,3,3,56,7,8,8,8,8,6,5,54,434];
+    //var str=ary1.toString();
+    //console.log(str);
+    //join  将数组按照指定的分隔符拼接成字符串，原有的数组不变
+    ///var str=ary1.join("+");
+    //console.log(str);
+    //eval 把字符串转换成表达式
+    //console.log(eval(str));
+    //数组的排列和排序
+    //1，reverse 将数组倒过来排列，原有的数组改变
+    //2,sort 不传参数的情况下只能处理10以内的数字
+    //ary.sort(function(a,b){return a-b})可以处理10以上的
+    //在IE6-8下不兼容的方法
+    //1，indexOf和 lastIndexOf
+    //返回当前项在数组中的索引,indexOf是从前向后找,找出当前项第一次出现的索引位置;而lastIndexOf是从后向前找,找出当前项最后一次出现的索引位置;-->不管是哪一个，如果没有，返回的索引都是-1，用着方法可以判断数组中是否有这一项
+    //2，forEach  遍历数组中的每一项，原有数组不变
+    //3，map
+
+
+    //数组的冒泡排序
+    var ary2=[2,4,6,3,454,323,22,5,1,45,56,7]
+    for (var i=0;i< ary2.length-1;i++){
+        for (var j=0;j<ary2.length-1-i;j++){
+            if (ary2[j]>ary2[j+1]){
+                var temp=ary2[j];
+                ary2[j]=ary2[j+1];
+                ary2[j+1]=temp;
+                temp=null;
+            }
+        }
+    }
+   //console.log(ary2);
+    //数组的去重
+    var ary2=[2,3,4,2,3,5,6,3,5,7,6,2];
+   /* for (var i=0;i<ary2.length-1;i++){
+        for (var j=i+1;j<ary2.length;j++){
+            if(ary2[i]==ary2[j]){
+                ary2.splice(j,1);
+                j--;
+            }
+
+        }
+    }
+    console.log(ary2);*/
+    var obj={};
+    for (var i=0;i<ary2.length;i++){
+        var cur=ary2[i];
+        if(obj[cur]==cur){
+            ary2.splice(i,1);
+            i--;
+        }
+        obj[cur]=cur;
+    }
+    console.log(ary2);
+
+</script>
+
+
+
+
+</body>
+</html>
